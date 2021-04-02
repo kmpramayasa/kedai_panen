@@ -89,115 +89,10 @@ class ProductWidget extends StatelessWidget {
     return Container(   
       height: 300.0,           
       child: Stack(
-        children: <Widget>[
-
-
-          // Container(
-          //   margin: EdgeInsets.all(10),
-          //   width: 200.0,
-          //   child: Stack(
-          //     alignment: Alignment.topCenter,
-          //     children: <Widget>[                                                
-
-          //       Container(
-          //         decoration: BoxDecoration(                      
-          //           borderRadius: BorderRadius.circular(18.0)
-          //         ),
-          //         child: Stack(
-          //           children: <Widget>[
-          //             Image(
-          //               height: 150.0,
-          //               width: 200.0,
-          //               image: AssetImage("assets/products/" + productList.image),
-          //               fit: BoxFit.cover,                          
-          //             ),
-          //             Container(                                                   
-          //               padding: EdgeInsets.fromLTRB(8, 6, 8, 6),
-          //               color: Color(0xFF389048),
-          //               child: Text(
-          //                 productList.category,
-          //                 style: TextStyle(
-          //                   fontWeight: FontWeight.bold,                              
-          //                   color: Colors.white
-          //                 ),
-          //               ),
-          //             )
-          //           ],
-          //         ),
-          //       ), 
-
-          //       Positioned(
-          //         bottom: 10.0,
-          //         child: Container(
-          //           height: 120.0,
-          //           width: 200.0,
-          //           padding: EdgeInsets.all(16.0),
-          //           decoration: BoxDecoration(
-          //             color: Colors.white,
-          //             borderRadius: BorderRadius.circular(18.0),
-          //             boxShadow: [
-          //               BoxShadow(
-          //                 color: Colors.grey.withOpacity(0.3),
-          //                 spreadRadius: 3,
-          //                 blurRadius: 7,
-          //                 offset: Offset(0,3),
-          //               )
-          //             ]
-          //           ),
-          //           child: Column(
-          //             mainAxisAlignment: MainAxisAlignment.end,
-          //             crossAxisAlignment: CrossAxisAlignment.start,
-          //             children: <Widget>[
-          //               Row(
-          //                 crossAxisAlignment: CrossAxisAlignment.start,
-          //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //                 children: <Widget>[
-          //                   Text(
-          //                     '${productList.name}',
-          //                     style: TextStyle(
-          //                       fontSize: 16.0,
-          //                       fontWeight: FontWeight.bold,
-          //                       fontFamily: 'Roboto',
-          //                     ),
-          //                   ),
-          //                   Container(
-          //                     child: Row(
-          //                       children: star,
-          //                     ),
-          //                   )  
-          //                 ],
-          //               ),
-                        
-
-          //               Text(
-          //                 productList.weight.toString() + " " + productList.unit,
-          //                 style: TextStyle(
-          //                   color: Color(0xFFA2D463),
-          //                 ),
-          //               ),
-                        
-          //               Text(
-          //                 "Rp. " + productList.price.toString(),
-          //                 style: TextStyle(
-          //                   color: Color(0xFFff7f50),
-          //                   fontWeight: FontWeight.bold,
-          //                   fontSize: 15,
-          //                   fontFamily: 'Roboto'
-          //                 ),
-          //               ),
-          //             ],
-          //           ),
-          //         ),
-          //       ), 
-                            
-          //     ],
-
-              
-          //   ),
-          // ),
+        children: <Widget>[         
 
           Container(            
-            width: 200.0,                                 
+            width: 100.0,                                 
             decoration: BoxDecoration(              
               borderRadius: BorderRadius.circular(12),
               color: Colors.white,
@@ -213,8 +108,8 @@ class ProductWidget extends StatelessWidget {
             child: Column(              
               children: <Widget>[
                 Image(
-                  height: 150.0,
-                  width: 200.0,
+                  height: 100.0,
+                  width: 100.0,
                   image: AssetImage("assets/products/" +productList.image), 
                   fit: BoxFit.cover,
                 ),
