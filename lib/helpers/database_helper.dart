@@ -16,11 +16,11 @@ class DatabaseHelper{
   String colPrice = 'price';
   String colQty = 'qty';
   String colTotal = 'total';
-  String colDate = 'date';
+  String colAddress = 'address';
   String colNotes = 'notes';
 
   //Orders Table
-  //  |  id  |  product |  price | qty | total | date  | notes |
+  //  |  id  |  product |  price | qty | total | address  | notes |
   //  
 
 Future<Database> get database async{
@@ -40,7 +40,7 @@ Future<Database> get database async{
 
   void _createDb(Database db, int version) async {
     db.execute(
-      'CREATE TABLE $orderTable($colId INTEGER PRIMARY KET AUTOINCREMENT, $colProduct TEXT, $colPrice INTEGER, $colQty INTEGER, $colTotal INTEGER, $colDate TEXT, $colNotes TEXT)'
+      'CREATE TABLE $orderTable($colId INTEGER PRIMARY KET AUTOINCREMENT, $colProduct TEXT, $colPrice INTEGER, $colQty INTEGER, $colTotal INTEGER, $colAddress TEXT, $colNotes TEXT)'
     );
   }
 

@@ -15,21 +15,15 @@ class _ProductScreenState extends State<ProductScreen> {
     return Scaffold(
 
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Row(          
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              "Produk Kedai Panen",
-              style: TextStyle(
-                fontFamily: 'Roboto',
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF389048),
-              ),
-            )
-          ],
+        title: Center(
+          child: Text(
+            "Produk Kedai Panen",
+              style: TextStyle(color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.w300),
+          ),
         ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(bottomRight: Radius.circular(16.0), bottomLeft: Radius.circular(16.0))),
+        backgroundColor: Color(0xFF389048),
+        elevation: 0,
       ),
 
       body: Container(
@@ -53,7 +47,7 @@ class _ProductScreenState extends State<ProductScreen> {
                 Navigator.push(
                   context, 
                   MaterialPageRoute(
-                    builder: (BuildContext context) => ProductDetailScreen(productList: productList),
+                    builder: (BuildContext context) => ProductDetailScreen(productList: productList,),
                   )
                 );
               },
@@ -82,17 +76,16 @@ class ProductWidget extends StatelessWidget {
     
     for(var i = 0; i < productList.rating; i++){
       star.add(
-        new Icon(FontAwesomeIcons.star, size: 10, color: Colors.yellow)
+        new Icon(Icons.star, size: 10, color: Colors.yellow)
       );
     }
     
-    return Container(   
-      height: 300.0,           
-      child: Stack(
+    return Container(                   
+      child: Stack(        
         children: <Widget>[         
 
           Container(            
-            width: 100.0,                                 
+            width: 200.0,                                                     
             decoration: BoxDecoration(              
               borderRadius: BorderRadius.circular(12),
               color: Colors.white,
@@ -105,11 +98,11 @@ class ProductWidget extends StatelessWidget {
                 )
               ],              
             ),
-            child: Column(              
+            child: Column(                                          
               children: <Widget>[
                 Image(
                   height: 100.0,
-                  width: 100.0,
+                  width: 200.0,
                   image: AssetImage("assets/products/" +productList.image), 
                   fit: BoxFit.cover,
                 ),
@@ -119,6 +112,12 @@ class ProductWidget extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
+                      Container(
+                        margin: EdgeInsets.only(bottom: 6.0),
+                        child: Row(
+                          children: star,
+                        ),
+                      ) , 
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -128,14 +127,10 @@ class ProductWidget extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 16.0,
                               fontWeight: FontWeight.bold,
+                              color: Color(0xFF389048),
                               fontFamily: 'Roboto',
                             ),
-                          ),
-                          Container(
-                            child: Row(
-                              children: star,
-                            ),
-                          )  
+                          ),                          
                         ],
                       ),
                       
@@ -143,14 +138,14 @@ class ProductWidget extends StatelessWidget {
                       Text(
                         productList.weight.toString() + " " + productList.unit,
                         style: TextStyle(
-                          color: Color(0xFFA2D463),
+                          color: Color(0xFFB2C2B9),
                         ),
                       ),
                       
                       Text(
                         "Rp. " + productList.price.toString(),
                         style: TextStyle(
-                          color: Color(0xFFff7f50),
+                          color: Color(0xFFA2D463),
                           fontWeight: FontWeight.bold,
                           fontSize: 15,
                           fontFamily: 'Roboto'

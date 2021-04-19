@@ -26,7 +26,7 @@ class Products{
 List <Products> Product = [
   Products(
     name: "Sawi",
-    description: "Sawi merupakan salah satu jenis sayuran hijau yang baik bagi tubuh karena memiliki kandungan vitamin dan mineral yang dibutuhkan tubuh. Beberapa vitamin yang terkandung dalam sawi Antara lain seperti vitamin B kompleks dalam bentuk asam folat, vitamin A yang berasal dari karoten, vitamin C, dan vitamin K.",    
+    description: "Sawi merupakan salah satu jenis sayuran hijau yang baik bagi tubuh karena memiliki kandungan vitamin dan mineral yang dibutuhkan tubuh. Beberapa vitamin yang terkandung dalam sawi Antara lain seperti vitamin B kompleks dalam bentuk asam folat, vitamin A yang berasal dari karoten, vitamin C, dan vitamin K. ",    
     weight: 7,
     unit: "Kilogram",
     price: 90000,

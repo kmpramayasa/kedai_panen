@@ -6,12 +6,13 @@ class Orders {
   int price;  
   int qty;
   int total;
-  DateTime date;
+  String address;
   String notes;
+  DateTime date;
 
   //Constructors
-  Orders({this.product, this.price, this.qty, this.total, this.date, this.notes});
-  Orders.withId({this.id, this.product, this.price, this.qty, this.total, this.date, this.notes});
+  Orders({this.product, this.price, this.qty, this.total, this.address, this.notes, this.date});
+  Orders.withId({this.id, this.product, this.price, this.qty, this.total, this.address, this.notes, this.date});
 
   //Convert object to map
   Map<String, dynamic> toMap(){
@@ -23,8 +24,9 @@ class Orders {
     map['price'] = price;
     map['qty'] = qty;
     map['total'] = total;
-    map['date'] = date.toIso8601String();
+    map['address'] = address;
     map['notes'] = notes;
+    map['date'] = date.toIso8601String();
 
     return map;
   }
@@ -37,8 +39,9 @@ class Orders {
       price: map['price'],
       qty: map['qty'],
       total: map['total'],
-      date: map['date'],
+      address: map['address'],
       notes: map['notes'],
+      date: map['date'],
     );
   }
 

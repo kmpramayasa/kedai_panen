@@ -7,7 +7,7 @@ class ProductDetailScreen extends StatefulWidget {
   ProductDetailScreen({Key key, this.productList})
   : super(key: key);
 
-  final Products productList;
+  final Products productList;  
   
   @override
   _ProductDetailScreenState createState() => _ProductDetailScreenState();
@@ -15,32 +15,65 @@ class ProductDetailScreen extends StatefulWidget {
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
 
+  
   final star = <Widget>[];
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {    
 
     for(int i = 0; i < widget.productList.rating; i++){
       star.add(new Icon(
-       FontAwesomeIcons.star, color: Colors.yellow, size: 15, 
+       Icons.star, color: Colors.yellow, size: 15, 
       ));
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('${widget.productList.name}'),
-        backgroundColor: Color(0xFFB2C2B9),        
-      ),
+      // appBar: AppBar(
+      //   title: Text('${widget.productList.name}'),
+      //   backgroundColor: Color(0xFFB2C2B9),        
+      // ),
       body: ListView(
         children: <Widget>[
           
-          //Product Image
-          Image(
-            image: AssetImage('assets/products/'+ widget.productList.image),
-            width: double.infinity,
-            height: 250.0,
-            fit: BoxFit.cover,
-          ),
+          Stack(
+            children: <Widget>[
+              //Product Image
+              Image(
+                image: AssetImage('assets/products/'+ widget.productList.image),
+                width: double.infinity,
+                height: 250.0,
+                fit: BoxFit.cover,
+              ),
+
+              Container(
+                decoration: BoxDecoration(
+                  color: Color(0xFF389048),
+                  borderRadius: BorderRadius.only(bottomRight: Radius.circular(16), bottomLeft: Radius.circular(16))
+                ),
+                padding: EdgeInsets.symmetric(vertical: 14.0, horizontal: 28.0,), 
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Icon(FontAwesomeIcons.arrowLeft, color: Colors.white, size: 16.0,)
+                        ),
+                        SizedBox(width: 16.0,),
+                        Text(
+                          widget.productList.name,
+                          style: TextStyle(color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.w300),
+                        ),                        
+                      ],
+                    ),
+                  ],
+                ),
+              ),              
+            ],
+          ),          
 
           //Product Info
           Container(
@@ -81,6 +114,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   style: TextStyle(
                     fontFamily: 'Roboto',
                     fontWeight: FontWeight.bold,
+                    color: Color(0xFF389048),
                     fontSize: 19.0,
                   ),
                 ),
@@ -92,7 +126,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     fontFamily: 'Roboto',
                     fontWeight: FontWeight.w300,
                     fontSize: 16.0,
-                    color: Color(0xFFA2D463),
+                    color: Color(0xFFB2C2B9),
                   ),
                 ),
 
@@ -103,7 +137,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     fontFamily: 'Roboto',
                     fontWeight: FontWeight.bold,
                     fontSize: 17.0,
-                    color: Color(0xFFff7f50),
+                    color: Color(0xFFA2D463),
                   ),
                 ),
 
@@ -125,10 +159,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     fontFamily: 'Roboto',
                     fontWeight: FontWeight.bold,
                     fontSize: 16.0,
-                    color: Color(0xFFA2D463),
+                    color: Color(0xFF389048),
                   ),
                 ),
-
+               
                 //Description Text
                 Text(
                   widget.productList.description,
@@ -193,12 +227,12 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             Expanded(
               flex: 2,
               child: Container(              
-                child: FlatButton(                                                  
-                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  color: Color(0xFFff7f50),
+                child: RaisedButton(                                                  
+                  // materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  color: Color(0xFF389048),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
-                    side: BorderSide(color: Color(0xFFff7f50), width: 1.0)                
+                    side: BorderSide(color: Color(0xFF389048), width: 1.0)                
                   ),              
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -222,8 +256,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   onPressed: () {
                     Navigator.push(
                       context, 
-                      MaterialPageRoute(
-                        builder: (BuildContext context) => OrderScreen(productList: widget.productList,)
+                      MaterialPageRoute(                        
+                        builder: (BuildContext context) => OrderScreen(productList: widget.productList)
                       )
                     );
                   },

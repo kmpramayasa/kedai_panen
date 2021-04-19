@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
           Container(
             decoration: BoxDecoration(
-              color: Color(0xFFA2D463),
+              color: Color(0xFF389048),
               borderRadius: BorderRadius.only(bottomRight: Radius.circular(24), bottomLeft: Radius.circular(24))
             ),
             padding: EdgeInsets.only(top: 28, right: 48, left: 48, bottom: 12),                          
@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         fontFamily: 'Roboto',
                         fontSize: 22.0,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF389048),
+                        color: Color(0xFFAFD9BA),
                         fontStyle: FontStyle.italic,
                       ),
                     )
@@ -187,7 +187,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: TextStyle(
                         fontWeight: FontWeight.w300,
                         fontFamily: 'Roboto',
-                        color: Color(0xFFff7f50),
+                        color: Color(0xFF389048),
                       ),
                     ),
                   ],
@@ -264,13 +264,14 @@ class ProductCarousel extends StatelessWidget {
                                 '${productList.name}',
                                 style: TextStyle(
                                   fontSize: 16.0,
-                                  fontWeight: FontWeight.bold 
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF389048) 
                                 ),
                               ),  
                               Container(
                                 padding: EdgeInsets.fromLTRB(6, 4, 6, 4),
                                 decoration: BoxDecoration(
-                                  color: Color(0xFFA2D463),
+                                  color: Color(0xFFAFD9BA),
                                   borderRadius: BorderRadius.circular(20)
                                 ),
                                 child: Text(
@@ -290,7 +291,7 @@ class ProductCarousel extends StatelessWidget {
                           Text(
                             "Rp. " + productList.price.toString(),
                             style: TextStyle(
-                              color: Color(0xFFff7f50),
+                              color: Color(0xFFA2D463),
                               fontWeight: FontWeight.bold,
                               fontSize: 15,
                               fontFamily: 'Roboto'

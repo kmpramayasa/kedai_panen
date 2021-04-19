@@ -52,7 +52,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
 
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
-        selectedItemColor: Color(0xFFff7f50),
+        selectedItemColor: Color(0xFF389048),
         selectedFontSize: 12,
         unselectedFontSize: 12, 
         iconSize: 16,
