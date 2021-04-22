@@ -2,10 +2,12 @@ import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:layout/helpers/database_helper.dart';
 import 'package:layout/screens/home_screen.dart';
 import 'package:layout/screens/transaction_screen.dart';
 import '../models/products_model.dart';
 import '../models/orders_model.dart';
+import 'package:intl/intl.dart';
 
 class OrderScreen extends StatefulWidget {
   OrderScreen({Key key, this.productList }) 
@@ -28,6 +30,8 @@ class _OrderScreenState extends State<OrderScreen> {
   String _notes = '';
   DateTime _date = DateTime.now();
 
+  final DateFormat dateFormatter = DateFormat("dd MM yyyy");
+
   //Form Controller to Store Input Value
   // TextEditingController orderProduct = TextEditingController();
   // TextEditingController orderPrice = TextEditingController();
@@ -35,8 +39,7 @@ class _OrderScreenState extends State<OrderScreen> {
   TextEditingController orderAddress = TextEditingController();
   // TextEditingController orderTotal = TextEditingController();
   TextEditingController orderNotes = TextEditingController();
-  // TextEditingController orderDate = TextEditingController();
-  
+  // TextEditingController orderDate = TextEditingController();  
 
   // Get Total Order price
   _totalOrder(){    
@@ -55,17 +58,22 @@ class _OrderScreenState extends State<OrderScreen> {
     if(_formKey.currentState.validate()){
       _formKey.currentState.save();
 
-      // order = Orders(
-      //   product: widget.productList.name, 
-      //   price: widget.productList.price,
-      //   qty: _qty,
-      //   total: _total,
-      //   address: _address,
-      //   notes: _notes,
-      //   date: _date,
-      // );
-      //     
-      // 
+      order = Orders(
+        product: widget.productList.name, 
+        weight: widget.productList.weight,
+        unit: widget.productList.unit,
+        image: widget.productList.image,
+        category: widget.productList.category,
+        price: widget.productList.price,
+        qty: _qty,
+        total: _total,
+        address: _address,
+        notes: _notes,
+        date: _date,
+      );          
+      
+      DatabaseHelper.instance.insertOrder(order);
+
       print("Pesanan Dibuat");    
 
       Navigator.pushAndRemoveUntil(
